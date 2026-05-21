@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Session": {
+      "title": "ChatSession",
+      "description": "A communication thread with Jarvis containing multiple messages.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "userId": { "type": "string" }
+      },
+      "required": ["id", "title", "timestamp", "userId"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "An individual chat message within a session.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "assistant"] },
+        "content": { "type": "string" },
+        "type": { "type": "string", "enum": ["text", "image", "video", "audio", "movie", "app"] },
+        "mediaUrl": { "type": "string" },
+        "timestamp": { "type": "number" }
+      },
+      "required": ["id", "role", "content", "type", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/sessions/{sessionId}": {
+      "schema": "Session",
+      "description": "Stores individual chat sessions."
+    },
+    "/sessions/{sessionId}/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Stores messages inside a chat session."
+    }
+  }
+}

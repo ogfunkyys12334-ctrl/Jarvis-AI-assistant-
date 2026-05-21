@@ -1,0 +1,12 @@
+{
+  "name": "Jarvis V2",
+  "description": "A refined, professional AI assistant featuring high-precision reasoning, real-time search, interactive custom components, and highly focused response profiles.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
